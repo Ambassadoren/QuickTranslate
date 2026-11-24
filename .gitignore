@@ -1,0 +1,12 @@
+**/bin/
+**/obj/
+.vs/
+.idea/
+Data/
+*.user
+*.suo
+*.log
+*.zip
+*.sha256
+*.tmp
+__pycache__/

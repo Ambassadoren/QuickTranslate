@@ -1,0 +1,16 @@
+<Window x:Class="QuickTranslate.HistoryWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="История QuickTranslate" Width="620" Height="590" MinWidth="480" MinHeight="440" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" Style="{StaticResource {x:Type Window}}">
+ <Grid Margin="20">
+  <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="140"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+  <Grid Margin="0,0,0,12"><TextBlock Text="История переводов" FontSize="22" FontWeight="SemiBold"/><Button Content="Очистить" Click="Clear_Click" HorizontalAlignment="Right"/></Grid>
+  <TextBox x:Name="SearchBox" Grid.Row="1" AutomationProperties.Name="Поиск в истории" ToolTip="Поиск по оригиналу и переводу" TextChanged="Search_Changed" Margin="0,0,0,10"/>
+  <Grid Grid.Row="2">
+   <ListBox x:Name="EntriesList" BorderBrush="{DynamicResource LineBrush}" SelectionChanged="Selection_Changed" MouseDoubleClick="Open_Click" HorizontalContentAlignment="Stretch">
+    <ListBox.ItemTemplate><DataTemplate><StackPanel Margin="5,6"><TextBlock Text="{Binding Caption}" FontSize="11" Foreground="#8A7AAE" Margin="0,0,0,4"/><TextBlock Text="{Binding Preview}" TextWrapping="Wrap" FontSize="13"/></StackPanel></DataTemplate></ListBox.ItemTemplate>
+   </ListBox>
+   <TextBlock x:Name="EmptyLabel" Text="История пока пуста" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#8A93A6" IsHitTestVisible="False"/>
+  </Grid>
+  <TextBox x:Name="PreviewBox" Grid.Row="3" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,10,0,10" Background="{DynamicResource ResultBrush}"/>
+  <Grid Grid.Row="4"><TextBlock x:Name="InfoText" Foreground="{DynamicResource MutedBrush}" FontSize="11" VerticalAlignment="Center"/><StackPanel HorizontalAlignment="Right" Orientation="Horizontal"><Button x:Name="CopyButton" Content="Копировать" Click="Copy_Click" IsEnabled="False" Margin="0,0,7,0"/><Button x:Name="OpenButton" Content="Открыть перевод" Click="Open_Click" IsEnabled="False" Background="#7156D9" Foreground="White" BorderThickness="0"/></StackPanel></Grid>
+ </Grid>
+</Window>
